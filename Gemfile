@@ -38,6 +38,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'activeadmin'
 gem 'devise'
+gem 'devise_token_auth'
+gem 'omniauth'
+gem 'rack-cors'
 gem 'rails-i18n', '~> 5.1'
 
 group :development, :test do
