@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'admin#index'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   namespace :api, defaults: { format: :json } do
     scope :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
@@ -7,9 +11,4 @@ Rails.application.routes.draw do
       }
     end
   end
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
-  root 'admin#index'
 end
