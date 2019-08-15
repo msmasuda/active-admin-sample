@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 DeviseTokenAuth.setup do |config|
+  config.enable_standard_devise_support = true
+  config.default_confirm_success_url = "confirmed"
   # By default the authorization headers will change after each request. The
   # client is responsible for keeping track of the changing tokens. Change
   # this to false to prevent the Authorization header from changing after
@@ -46,6 +48,4 @@ DeviseTokenAuth.setup do |config|
   # By default, only Bearer Token authentication is implemented out of the box.
   # If, however, you wish to integrate with legacy Devise authentication, you can
   # do so by enabling this flag. NOTE: This feature is highly experimental!
-  config.enable_standard_devise_support = true
-  config.default_confirm_success_url = "confirmed"
 end
