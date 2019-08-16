@@ -1,4 +1,5 @@
-class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
+class Api::V1::Auth::SessionsController < DeviseTokenAuth::SessionsController
+  include DeviseTokenAuth::Concerns::SetUserByToken
   protect_from_forgery with: :null_session
   private
   def sign_up_params
