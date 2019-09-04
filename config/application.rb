@@ -12,14 +12,13 @@ module AdminSample
     config.load_defaults 5.2
   
     # rack-cors
-    config.middleware.insert_before 0, Rack::Cors do
+    config.middleware.use Rack::Cors do
       allow do
-        # 許可するドメイン
-        origins "*"
-        # 許可するヘッダとメソッドの種類
-        resource "*",
-                 headers: :any,
-                 methods: [:get, :post, :patch, :delete, :head, :options]
+        origins '*'
+        resource '/api/v1/*',
+          :headers => :any,
+          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+          :methods => [:get, :post, :options, :delete, :put]
       end
     end
 
